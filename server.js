@@ -10,7 +10,11 @@ const app = express()
 DbConnect()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: ['https://todo-frontend-muneeb-mustafas-projects.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true,
+}))
 
 app.use('/api', router)
 
